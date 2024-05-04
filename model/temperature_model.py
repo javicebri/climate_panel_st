@@ -6,6 +6,14 @@ def get_max_temperature_serie():
     pass
 
 
+def temperature_absolute_records_table_model() -> pd.DataFrame:
+    excel_stats_dict = st.session_state['excel_stats_dict']
+    excel_stats_dict['stats_temp'] = excel_stats_dict['stats_temp'].set_index('Estadísticas')
+    stats_temp_df = pd.DataFrame(excel_stats_dict['stats_temp'])
+    stats_temp_df['Fecha'] = pd.to_datetime(stats_temp_df['Fecha']).dt.strftime("%d-%m-%Y")
+    stats_temp_df['Temperatura [ºC]'] = stats_temp_df['Temperatura [ºC]'].apply(lambda x: f"{x:.1f}")
+    return stats_temp_df
+
 def temperature_relative_records_table_model(df: pd.DataFrame) -> pd.DataFrame:
     """
     Create a dataframe with the records for the input df
@@ -42,6 +50,7 @@ def temperature_relative_records_table_model(df: pd.DataFrame) -> pd.DataFrame:
     df_stats_rel_temp.loc['Max. amplitud rel. (Rango sel.)','Fecha'] = df['T. Amp.'].idxmax()
 
     df_stats_rel_temp['Fecha'] = pd.to_datetime(df_stats_rel_temp['Fecha']).dt.strftime("%d-%m-%Y")
+    df_stats_rel_temp['Temperatura [ºC]'] = df_stats_rel_temp['Temperatura [ºC]'].apply(lambda x: f"{x:.1f}")
 
     return df_stats_rel_temp
 

@@ -4,7 +4,7 @@ import plotly.graph_objects as go
 
 from assets.texts import texts
 
-from controller.temperature_controller import temperature_records_table_controller
+from controller.temperature_controller import temperature_relative_records_table_controller, temperature_absolute_records_table_controller
 
 
 def show():
@@ -16,12 +16,20 @@ def show():
     max_min_temperature_plot(df=filtdred_df)
     med_temperature_plot(df=filtdred_df)
     amp_temperature_plot(df=filtdred_df)
-    temperature_records_table(df=filtdred_df)
+    temperature_relative_records_table(df=filtdred_df)
+    temperature_absolute_records_table()
+
+def temperature_absolute_records_table():
+    # Get absolute records df
+    stats_abs_temp_df = temperature_absolute_records_table_controller()
+    st.write(texts.temperature_absolute_records)
+    st.table(stats_abs_temp_df)
 
 
-def temperature_records_table(df: pd.DataFrame):
+def temperature_relative_records_table(df: pd.DataFrame):
     # Get relative records df
-    df_stats_rel_temp = temperature_records_table_controller(df)
+    df_stats_rel_temp = temperature_relative_records_table_controller(df)
+    st.write(texts.temperature_relative_records)
     st.table(df_stats_rel_temp)
 
 

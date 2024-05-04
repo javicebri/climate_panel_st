@@ -30,6 +30,8 @@ def load_data_session():
     df_input_trend = pd.read_csv(input_trend_path, sep=";", index_col=[0])
     df_input_trend.index = pd.to_datetime(df_input_trend.index)
 
+    excel_stats_dict = pd.read_excel(input_stats_path, sheet_name=None, index_col=None)
+
     df_input_res = pd.read_csv(input_res_path, sep=";", index_col=[0])
 
     excel_compare_dict = pd.read_excel(
@@ -56,6 +58,7 @@ def load_data_session():
     st.session_state["df_out"] = df_out
     st.session_state["df_input_trend"] = df_input_trend
     st.session_state["df_input_res"] = df_input_res
+    st.session_state["excel_stats_dict"] = excel_stats_dict
     st.session_state["excel_compare_dict"] = excel_compare_dict
     st.session_state["excel_predict_dict"] = excel_predict_dict
     st.session_state["unit_dict"] = unit_dict

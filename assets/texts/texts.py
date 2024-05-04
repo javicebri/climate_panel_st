@@ -10,15 +10,18 @@ date_selector = "Selecciona el rango de fechas:"
 
 # TEMPERATURAS
 
-max_min_temperature_plot_title = "Temperaturas máximas y mínimas diaria [ºC]"
+max_min_temperature_plot_title = "Temperatura máximas y mínimas diaria [ºC]"
 max_min_temperature_plot_xaxis_title="Fecha"
 max_min_temperature_plot_yaxis_title="Temperatura [ºC]"
 
-med_temperature_plot_title = "Temperaturas medias Td1 = (MIN + MAX)/2 diaria [ºC]"
+med_temperature_plot_title = "Temperatura medias Td1 = (MIN + MAX)/2 diaria [ºC]"
 med_temperature_plot_xaxis_title="Fecha"
 med_temperature_plot_yaxis_title="Temperatura [ºC]"
 
 amp_temperature_plot_title = "Amplitud térmica diaria [ºC]"
 amp_temperature_plot_xaxis_title="Fecha"
 amp_temperature_plot_yaxis_title="Temperatura [ºC]"
+
+temperature_relative_records = "Records de temperatura en el periodo seleccionado:"
+temperature_absolute_records = "Records de temperatura en todo el periodo histórico:"
 
