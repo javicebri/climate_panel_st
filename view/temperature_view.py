@@ -17,6 +17,7 @@ def show():
     med_temperature_plot(df=filtdred_df)
     amp_temperature_plot(df=filtdred_df)
 
+
 @st.cache_data()
 def max_min_temperature_plot(df: pd.DataFrame):
     t_min_values = df["T. Min."].tolist()
@@ -52,6 +53,7 @@ def max_min_temperature_plot(df: pd.DataFrame):
 
     st.plotly_chart(fig)
 
+
 @st.cache_data()
 def med_temperature_plot(df: pd.DataFrame):
     """ """
@@ -76,6 +78,7 @@ def med_temperature_plot(df: pd.DataFrame):
     )
 
     st.plotly_chart(fig)
+
 
 @st.cache_data()
 def amp_temperature_plot(df: pd.DataFrame):
