@@ -41,5 +41,7 @@ def temperature_relative_records_table_model(df: pd.DataFrame) -> pd.DataFrame:
     df_stats_rel_temp.loc['Max. amplitud rel. (Rango sel.)','Temperatura [ºC]'] = df['T. Amp.'].max()
     df_stats_rel_temp.loc['Max. amplitud rel. (Rango sel.)','Fecha'] = df['T. Amp.'].idxmax()
 
+    df_stats_rel_temp['Fecha'] = pd.to_datetime(df_stats_rel_temp['Fecha']).dt.strftime("%d-%m-%Y")
+
     return df_stats_rel_temp
 
