@@ -9,6 +9,8 @@ def get_max_temperature_serie():
 def format_value(value):
     if  isinstance(value, str):
         return value
+    elif isinstance(value, int):
+        return str(value)
     elif pd.notna(value):  
         return f"{value:.1f}"  #str 1 decimal
     else:  # if NaN
