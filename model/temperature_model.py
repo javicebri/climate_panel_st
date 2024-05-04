@@ -7,23 +7,28 @@ def get_max_temperature_serie():
 
 
 def format_value(value):
-    if pd.notna(value):  
+    if  isinstance(value, str):
+        return value
+    elif pd.notna(value):  
         return f"{value:.1f}"  #str 1 decimal
     else:  # if NaN
         return ""
 
 def temperature_max_summary_table_model():
     max_summary_df = st.session_state["summary_max_temp_dict"].map(format_value)
+    max_summary_df.index = max_summary_df.index.map(format_value)
     return max_summary_df
 
 
 def temperature_med_summary_table_model():
     med_summary_df = st.session_state["summary_med_temp_dict"].map(format_value)
+    med_summary_df.index = med_summary_df.index.map(format_value)
     return med_summary_df
 
 
 def temperature_min_summary_table_model():
     min_summary_df = st.session_state["summary_min_temp_dict"].map(format_value)
+    min_summary_df.index = min_summary_df.index.map(format_value)
     return min_summary_df
 
 
