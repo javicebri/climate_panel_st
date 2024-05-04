@@ -6,7 +6,7 @@ def get_max_temperature_serie():
     pass
 
 
-def temperature_records_table_model(df: pd.DataFrame) -> pd.DataFrame:
+def temperature_relative_records_table_model(df: pd.DataFrame) -> pd.DataFrame:
     """
     Create a dataframe with the records for the input df
     Params:

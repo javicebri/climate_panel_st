@@ -1,6 +1,6 @@
 from model.temperature_model import (
     get_max_temperature_serie,
-    temperature_records_table_model,
+    temperature_relative_records_table_model,
 )
 
 import pandas as pd
@@ -12,4 +12,4 @@ def max_temperature_controller():
 
 
 def temperature_records_table_controller(df: pd.DataFrame) -> pd.DataFrame:
-    return temperature_records_table_model(df)
+    return temperature_relative_records_table_model(df)
