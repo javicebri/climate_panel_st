@@ -51,6 +51,8 @@ def load_data_session():
         "Precipitación": "[l/m2]",
     }
 
+    st.session_state = {}
+
     st.session_state["df_out"] = df_out
     st.session_state["df_input_trend"] = df_input_trend
     st.session_state["df_input_res"] = df_input_res

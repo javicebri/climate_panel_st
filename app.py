@@ -1,6 +1,7 @@
 import streamlit as st
 
 from view import (
+    date_selector_view,
     temperature_view,
     pressure_view,
     humidity_view,
@@ -75,6 +76,7 @@ with st.sidebar:
 ################
 
 if selected == texts.menu_temperature:
+    date_selector_view.show_date_selector_view()
     temperature_view.show()
 
 
