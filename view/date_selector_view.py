@@ -1,4 +1,5 @@
 import streamlit as st
+from assets.texts import texts
 
 
 def show_date_selector_view() -> None:
@@ -10,7 +11,7 @@ def show_date_selector_view() -> None:
     max_date = st.session_state["df_out"].index[-1].date()
 
     init_date, last_date = st.slider(
-        "Seleccionar rango de fechas:",
+        texts.date_selector,
         value=(min_date, max_date),
         min_value=min_date,
         max_value=max_date,
