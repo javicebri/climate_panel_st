@@ -42,6 +42,16 @@ def load_data_session():
         input_predict_path, sheet_name=None, index_col=None
     )
 
+    summary_max_temp_df = pd.read_excel(
+        input_stats_path, sheet_name="T. Max. mes", index_col=[0]
+    )
+    summary_med_temp_df = pd.read_excel(
+        input_stats_path, sheet_name="T. med1. mes", index_col=[0]
+    )
+    summary_min_temp_df = pd.read_excel(
+        input_stats_path, sheet_name="T. Min. mes", index_col=[0]
+    )
+
     unit_dict = {
         "T. Max.": "[ºC]",
         "T. Min.": "[ºC]",
@@ -61,4 +71,7 @@ def load_data_session():
     st.session_state["excel_stats_dict"] = excel_stats_dict
     st.session_state["excel_compare_dict"] = excel_compare_dict
     st.session_state["excel_predict_dict"] = excel_predict_dict
+    st.session_state["summary_max_temp_dict"] = summary_max_temp_df
+    st.session_state["summary_med_temp_dict"] = summary_med_temp_df
+    st.session_state["summary_min_temp_dict"] = summary_min_temp_df
     st.session_state["unit_dict"] = unit_dict
