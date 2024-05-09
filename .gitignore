@@ -161,3 +161,4 @@ cython_debug/
 
 data/
 images/
+deploy/update_ecr.sh
