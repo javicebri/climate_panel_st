@@ -51,3 +51,14 @@ pressure_relative_records = "Records de presión en el periodo seleccionado:"
 max_min_pressure_plot_title = "Presión máxima y mínima diaria [hPa]"
 max_min_pressure_plot_xaxis_title = "Fecha"
 max_min_pressure_plot_yaxis_title = "Presión [hPa]"
+
+
+# HUMIDITY
+
+humidity_max_summary = "Humedad máxima media por mes [%]"
+humidity_min_summary = "Humedad mínima media por mes [%]"
+humidity_absolute_records = "Records de humedad en todo el periodo histórico:"
+humidity_relative_records = "Records de humedad en el periodo seleccionado:"
+max_min_humidity_plot_title = "Humedad máxima y mínima diaria [%]"
+max_min_humidity_plot_xaxis_title = "Fecha"
+max_min_humidity_plot_yaxis_title = "Humedad [%]"
