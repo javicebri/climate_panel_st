@@ -27,7 +27,7 @@ def show():
 
 @st.cache_data()
 def wind_heatmap_max():
-    st.write(texts.temperature_max_heatmap)
+    st.write(texts.wind_max_heatmap)
     df_heatmap_max = wind_heatmap_max_controller()
 
     fig = px.imshow(
