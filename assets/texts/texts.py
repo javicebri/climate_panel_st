@@ -73,3 +73,13 @@ max_wind_plot_title = "Velocidad máxima diaria [Km/h]"
 max_wind_plot_xaxis_title = "Fecha"
 max_wind_plot_yaxis_title = "Velocidad [Km/h]"
 wind_max_heatmap = "Valocidad máxima media por mes [Km/h]"
+
+# PRECIPITATION
+
+precipitation_summary = "Precipitación media por mes [l]"
+precipitation_absolute_records = "Records de precipitación en todo el periodo histórico:"
+precipitation_relative_records = "Records de precipitación en el periodo seleccionado:"
+precipitation_plot_title = "Precipitación diaria [l]"
+precipitation_plot_xaxis_title = "Fecha"
+precipitation_plot_yaxis_title = "Precipitación [l]"
+precipitation_heatmap = "Precipitación media por mes [l]"

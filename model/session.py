@@ -70,6 +70,10 @@ def load_data_session():
         input_stats_path, sheet_name="Vel. mes", index_col=[0]
     )
 
+    summary_precipitation_df = pd.read_excel(
+        input_stats_path, sheet_name="Precipitación mes", index_col=[0]
+    )
+
     unit_dict = {
         "T. Max.": "[ºC]",
         "T. Min.": "[ºC]",
@@ -97,4 +101,6 @@ def load_data_session():
     st.session_state["summary_max_hum_dict"] = summary_max_hum_df
     st.session_state["summary_min_hum_dict"] = summary_min_hum_df
     st.session_state["summary_max_wind_dict"] = summary_max_wind_df
+    st.session_state["summary_precipitation_dict"] = summary_precipitation_df
+
     st.session_state["unit_dict"] = unit_dict
