@@ -54,8 +54,8 @@ def pressure_relative_records_table(df: pd.DataFrame):
 
 @st.cache_data()
 def max_min_pressure_plot(df: pd.DataFrame):
-    t_min_values = df["T. Min."].tolist()
-    t_max_values = df["T. Max."].tolist()
+    t_min_values = df["P. Min."].tolist()
+    t_max_values = df["P. Max."].tolist()
 
     fig = go.Figure()
     fig.add_trace(
@@ -63,7 +63,7 @@ def max_min_pressure_plot(df: pd.DataFrame):
             x=df.index,
             y=t_min_values,
             mode="lines",
-            name="T. Min.",
+            name="P. Min.",
             line=dict(color="#2222ff"),
         )
     )
@@ -73,7 +73,7 @@ def max_min_pressure_plot(df: pd.DataFrame):
             x=df.index,
             y=t_max_values,
             mode="lines",
-            name="T. Max.",
+            name="P. Max.",
             line=dict(color="#ff2222"),
         )
     )
