@@ -1,5 +1,6 @@
 import pandas as pd
 import streamlit as st
+import plotly.express as px
 import plotly.graph_objects as go
 
 from assets.texts import texts
@@ -9,7 +10,11 @@ from controller.temperature_controller import (
     temperature_absolute_records_table_controller,
     temperature_max_summary_table_controller,
     temperature_med_summary_table_controller,
-    temperature_min_summary_table_controller
+    temperature_min_summary_table_controller,
+    temperature_heatmap_max_controller,
+    temperature_heatmap_min_controller,
+    temperature_trend_max_controller,
+    temperature_trend_min_controller,
 )
 
 
@@ -27,6 +32,111 @@ def show():
     temperature_max_summary_table()
     temperature_min_summary_table()
     temperature_med_summary_table()
+    temperature_heatmap_max()
+    temperature_heatmap_min()
+    temperature_trend_max()
+    temperature_trend_min()
+
+
+@st.cache_data()
+def temperature_trend_min():
+    df = temperature_trend_min_controller()
+    t_min_values = df['T. Min.'].tolist()
+    t_trend_values = df["Regresión T. Min."].tolist()
+
+    fig = go.Figure()
+    fig.add_trace(
+        go.Scatter(
+            x=df.index,
+            y=t_trend_values,
+            mode="lines",
+            name="Tendencia.",
+            line=dict(color="#2222ff"),
+        )
+    )
+
+    # fig.add_trace(
+    #     go.Scatter(
+    #         x=df.index,
+    #         y=t_min_values,
+    #         mode="lines",
+    #         name="T. Min.",
+    #         line=dict(color="#6666ff"),
+    #     )
+    # )
+
+    fig.update_layout(
+        title=texts.min_trend_temperature_plot_title,
+        xaxis_title=texts.min_trend_temperature_trend_plot_xaxis_title,
+        yaxis_title=texts.min_temperature_trend_plot_yaxis_title,
+        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
+    )
+
+    st.plotly_chart(fig)
+
+
+@st.cache_data()
+def temperature_trend_max():
+    df = temperature_trend_max_controller()
+    # t_max_values = df['T. Max.'].tolist()
+    t_trend_values = df["Regresión T. Max."].tolist()
+
+    fig = go.Figure()
+    fig.add_trace(
+        go.Scatter(
+            x=df.index,
+            y=t_trend_values,
+            mode="lines",
+            name="Tendencia",
+            line=dict(color="#ff2222"),
+        )
+    )
+
+    # fig.add_trace(
+    #     go.Scatter(
+    #         x=df.index,
+    #         y=t_max_values,
+    #         mode="lines",
+    #         name="T. Max.",
+    #         line=dict(color="#ff6666"),
+    #     )
+    # )
+
+    fig.update_layout(
+        title=texts.max_trend_temperature_plot_title,
+        xaxis_title=texts.max_trend_temperature_trend_plot_xaxis_title,
+        yaxis_title=texts.max_temperature_trend_plot_yaxis_title,
+        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
+    )
+
+    st.plotly_chart(fig)
+
+
+@st.cache_data()
+def temperature_heatmap_max():
+    st.write(texts.max_heatmap)
+    df_heatmap_max = temperature_heatmap_max_controller()
+
+    fig = px.imshow(
+        df_heatmap_max, text_auto=True, aspect="auto", color_continuous_scale="reds"
+    )
+    # fig.update_yaxes(tickmode='array', tickvals=list(range(len(df.index))), ticktext=list(df.index))
+    st.plotly_chart(fig, theme="streamlit", use_container_width=True)
+
+
+@st.cache_data()
+def temperature_heatmap_min():
+    st.write(texts.min_heatmap)
+    df_heatmap_min = temperature_heatmap_min_controller()
+
+    fig = px.imshow(
+        df_heatmap_min,
+        text_auto=True,
+        aspect="auto",
+        color_continuous_scale=px.colors.sequential.Blues[::-1],
+    )
+    # fig.update_yaxes(tickmode='array', tickvals=list(range(len(df.index))), ticktext=list(df.index))
+    st.plotly_chart(fig, theme="streamlit", use_container_width=True)
 
 
 def temperature_max_summary_table():
@@ -41,12 +151,10 @@ def temperature_med_summary_table():
     st.table(med_summary_df)
 
 
-
 def temperature_min_summary_table():
     min_summary_df = temperature_min_summary_table_controller()
     st.write(texts.min_summary)
     st.table(min_summary_df)
-
 
 
 def temperature_absolute_records_table():

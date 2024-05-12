@@ -7,14 +7,59 @@ def get_max_temperature_serie():
 
 
 def format_value(value):
-    if  isinstance(value, str):
+    if isinstance(value, str):
         return value
     elif isinstance(value, int):
         return str(value)
-    elif pd.notna(value):  
-        return f"{value:.1f}"  #str 1 decimal
+    elif pd.notna(value):
+        return f"{value:.1f}"  # str 1 decimal
     else:  # if NaN
         return ""
+
+
+def calculate_max_temperature_anual_serie() -> pd.Series:
+    """
+    Return a serie with the med temp of each year, only consider year with all of month with data
+    TODO: Esta operación debe ser incluida en la generación de tablas (preprocesado, para reducir carga computacional)
+    """
+    max_summary_df = st.session_state["summary_max_temp_dict"]
+    # Drop rows with NaN
+    max_summary_df = max_summary_df.dropna()
+    max_summary_df =max_summary_df.drop("Interanual")
+    max_med_df = max_summary_df.mean(axis=1)
+    return (max_med_df)
+
+
+def calculate_min_temperature_anual_serie() -> pd.Series:
+    """
+    Return a serie with the med temp of each year, only consider year with all of month with data
+    TODO: Esta operación debe ser incluida en la generación de tablas (preprocesado, para reducir carga computacional)
+    """
+    min_summary_df = st.session_state["summary_min_temp_dict"]
+    # Drop rows with NaN
+    min_summary_df = min_summary_df.dropna()
+    min_summary_df =min_summary_df.drop("Interanual")
+    min_med_df = min_summary_df.mean(axis=1)
+    return (min_med_df)
+
+
+def temperature_trend_max_model() -> tuple:
+    # TODO: Falta añadir los puntos scatter de las medias anuales
+    # max_med_df = calculate_max_temperature_anual_serie()
+    df = st.session_state["df_input_trend"]
+    # max_med_df = max_med_df.reindex(df.index)
+    # df['Anual_max_mean'] = max_med_df
+    return df
+
+
+def temperature_trend_min_model() -> pd.DataFrame:
+    # TODO: Falta añadir los puntos scatter de las medias anuales
+    # min_med_df = calculate_min_temperature_anual_serie()
+    df = st.session_state["df_input_trend"]
+    # min_med_df = min_med_df.reindex(df.index)
+    # df['Anual_min_mean'] = min_med_df
+    return df
+
 
 def temperature_max_summary_table_model():
     max_summary_df = st.session_state["summary_max_temp_dict"].map(format_value)
@@ -71,7 +116,7 @@ def temperature_relative_records_table_model(df: pd.DataFrame) -> pd.DataFrame:
                 "Max. amplitud rel. (Rango sel.)",
             ],
             "Fecha": pd.to_datetime([0, 0, 0, 0, 0, 0, 0, 0]),
-            "Temperatura [ºC]": [0., 0., 0., 0., 0., 0., 0., 0.],
+            "Temperatura [ºC]": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
         }
     )
 
@@ -130,3 +175,13 @@ def temperature_relative_records_table_model(df: pd.DataFrame) -> pd.DataFrame:
     )
 
     return df_stats_rel_temp
+
+
+def temperature_heatmap_max_model(df: pd.DataFrame) -> pd.DataFrame:
+    df = df.copy()
+    return df.drop("Interanual")
+
+
+def temperature_heatmap_min_model(df: pd.DataFrame) -> pd.DataFrame:
+    df = df.copy()
+    return df.drop("Interanual")

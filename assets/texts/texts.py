@@ -28,3 +28,15 @@ temperature_absolute_records = "Records de temperatura en todo el periodo histó
 max_summary = "Temperatura máxima media por mes [ºC]"
 med_summary = "Temperatura media td1 media por mes [ºC]"
 min_summary = "Temperatura mínima media por mes [ºC]"
+
+max_heatmap = "Temperatura máxima media por mes [ºC]"
+med_heatmap = "Temperatura media td1 media por mes [ºC]"
+min_heatmap = "Temperatura mínima media por mes [ºC]"
+
+max_trend_temperature_plot_title = "Tendencia temperatura máxima [ºC]"
+max_trend_temperature_trend_plot_xaxis_title = "Tenendecia [ºC]"
+max_temperature_trend_plot_yaxis_title = "T. Max [ºC]"
+
+min_trend_temperature_plot_title = "Tendencia temperatura mínima [ºC]"
+min_trend_temperature_trend_plot_xaxis_title = "Tenendecia [ºC]"
+min_temperature_trend_plot_yaxis_title = "T. Min [ºC]"
