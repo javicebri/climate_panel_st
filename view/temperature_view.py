@@ -41,7 +41,7 @@ def show():
 @st.cache_data()
 def temperature_trend_min():
     df = temperature_trend_min_controller()
-    t_min_values = df['T. Min.'].tolist()
+    t_min_values = df["T. Min."].tolist()
     t_trend_values = df["Regresión T. Min."].tolist()
 
     fig = go.Figure()
