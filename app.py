@@ -85,6 +85,7 @@ if selected == texts.menu_temperature:
 ################
 
 if selected == texts.menu_pressure:
+    date_selector_view.show_date_selector_view()
     pressure_view.show()
 
 ################
@@ -92,6 +93,7 @@ if selected == texts.menu_pressure:
 ################
 
 if selected == texts.menu_humidity:
+    date_selector_view.show_date_selector_view()
     humidity_view.show()
 
 ################
@@ -99,6 +101,7 @@ if selected == texts.menu_humidity:
 ################
 
 if selected == texts.menu_wind:
+    date_selector_view.show_date_selector_view()
     wind_view.show()
 
 #################
@@ -106,4 +109,5 @@ if selected == texts.menu_wind:
 #################
 
 if selected == texts.menu_precipitation:
+    date_selector_view.show_date_selector_view()
     precipitation_view.show()
