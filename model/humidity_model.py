@@ -69,24 +69,24 @@ def humidity_relative_records_table_model(df: pd.DataFrame) -> pd.DataFrame:
     df_stats_rel_hum = df_stats_rel_hum.set_index("Estadísticas")
 
     df_stats_rel_hum.loc["Mínima rel. (Rango sel.)", "Humedad [%]"] = df[
-        "P. Min."
+        "H. Min."
     ].min()
     df_stats_rel_hum.loc["Mínima rel. (Rango sel.)", "Fecha"] = df["P. Min."].idxmin()
     df_stats_rel_hum.loc["Mínima Max. rel. (Rango sel.)", "Humedad [%]"] = df[
-        "P. Min."
+        "H. Min."
     ].max()
     df_stats_rel_hum.loc["Mínima Max. rel. (Rango sel.)", "Fecha"] = df[
-        "P. Min."
+        "H. Min."
     ].idxmax()
     df_stats_rel_hum.loc["Máxima rel. (Rango sel.)", "Humedad [%]"] = df[
-        "P. Max."
+        "H. Max."
     ].max()
     df_stats_rel_hum.loc["Máxima rel. (Rango sel.)", "Fecha"] = df["P. Max."].idxmax()
     df_stats_rel_hum.loc["Máxima Min. rel. (Rango sel.)", "Humedad [%]"] = df[
-        "P. Max."
+        "H. Max."
     ].min()
     df_stats_rel_hum.loc["Máxima Min. rel. (Rango sel.)", "Fecha"] = df[
-        "P. Max."
+        "H. Max."
     ].idxmin()
 
 

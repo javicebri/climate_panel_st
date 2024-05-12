@@ -62,3 +62,13 @@ humidity_relative_records = "Records de humedad en el periodo seleccionado:"
 max_min_humidity_plot_title = "Humedad máxima y mínima diaria [%]"
 max_min_humidity_plot_xaxis_title = "Fecha"
 max_min_humidity_plot_yaxis_title = "Humedad [%]"
+
+
+# WIND
+
+wind_max_summary = "Valocidad máxima media por mes [Km/h]"
+wind_absolute_records = "Records de viento en todo el periodo histórico:"
+wind_relative_records = "Records de viento en el periodo seleccionado:"
+max_wind_plot_title = "Velocidad máxima diaria [Km/h]"
+max_wind_plot_xaxis_title = "Fecha"
+max_wind_plot_yaxis_title = "Velocidad [Km/h]"
