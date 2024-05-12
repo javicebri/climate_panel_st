@@ -52,6 +52,13 @@ def load_data_session():
         input_stats_path, sheet_name="T. Min. mes", index_col=[0]
     )
 
+    summary_max_press_df = pd.read_excel(
+        input_stats_path, sheet_name="P. Max. mes", index_col=[0]
+    )
+    summary_min_press_df = pd.read_excel(
+        input_stats_path, sheet_name="P. Min. mes", index_col=[0]
+    )
+
     unit_dict = {
         "T. Max.": "[ºC]",
         "T. Min.": "[ºC]",
@@ -74,4 +81,6 @@ def load_data_session():
     st.session_state["summary_max_temp_dict"] = summary_max_temp_df
     st.session_state["summary_med_temp_dict"] = summary_med_temp_df
     st.session_state["summary_min_temp_dict"] = summary_min_temp_df
+    st.session_state["summary_max_press_dict"] = summary_max_press_df
+    st.session_state["summary_min_press_dict"] = summary_min_press_df
     st.session_state["unit_dict"] = unit_dict

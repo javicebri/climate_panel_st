@@ -41,7 +41,7 @@ def show():
 @st.cache_data()
 def temperature_trend_min():
     df = temperature_trend_min_controller()
-    t_min_values = df["T. Min."].tolist()
+    # t_min_values = df["T. Min."].tolist()
     t_trend_values = df["Regresión T. Min."].tolist()
 
     fig = go.Figure()
@@ -114,7 +114,7 @@ def temperature_trend_max():
 
 @st.cache_data()
 def temperature_heatmap_max():
-    st.write(texts.max_heatmap)
+    st.write(texts.temperature_max_heatmap)
     df_heatmap_max = temperature_heatmap_max_controller()
 
     fig = px.imshow(
@@ -126,7 +126,7 @@ def temperature_heatmap_max():
 
 @st.cache_data()
 def temperature_heatmap_min():
-    st.write(texts.min_heatmap)
+    st.write(texts.temperature_min_heatmap)
     df_heatmap_min = temperature_heatmap_min_controller()
 
     fig = px.imshow(
@@ -141,19 +141,19 @@ def temperature_heatmap_min():
 
 def temperature_max_summary_table():
     max_summary_df = temperature_max_summary_table_controller()
-    st.write(texts.max_summary)
+    st.write(texts.temperature_max_summary)
     st.table(max_summary_df)
 
 
 def temperature_med_summary_table():
     med_summary_df = temperature_med_summary_table_controller()
-    st.write(texts.med_summary)
+    st.write(texts.temperature_med_summary)
     st.table(med_summary_df)
 
 
 def temperature_min_summary_table():
     min_summary_df = temperature_min_summary_table_controller()
-    st.write(texts.min_summary)
+    st.write(texts.temperature_min_summary)
     st.table(min_summary_df)
 
 
