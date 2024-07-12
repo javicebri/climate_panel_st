@@ -1,2 +1,7 @@
 [theme]
 base="light"
+
+
+[server]
+sslCertFile = 'javicebries_ssl_certificate.cer'
+sslKeyFile = 'javicebries_private_key.key'

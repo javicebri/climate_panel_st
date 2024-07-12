@@ -162,3 +162,5 @@ cython_debug/
 data/
 images/
 deploy/update_ecr.sh
+javicebries_ssl_certificate.cer
+javicebries_private_key.key
